@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" height="300px" width="500px" style="border: 2px double darkred"></canvas>
+<p id ="dis"></p>
+</body>
+<script>
+    let Rectangle = function (x,y) {
+        this.wt = x;
+        this.ht = y;
+
+        this.getWt = function () {
+            return this.wt;
+        }
+        this.getHt = function () {
+            return this.ht;
+        }
+        this.setWt = function (wt) {
+            this.wt = wt;
+        }
+        this.setHt = function (ht) {
+            this.ht = ht;
+        }
+        this.getArea = function () {
+            return this.wt * this.ht;
+        }
+        this.getPerimeter = function () {
+            return 2*(this.wt + this.ht);
+        }
+        this.draw =function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.rect(20,20,this.wt,this.ht);
+            ctx.strokeStyle="blue";
+            ctx.stroke();
+        }
+    }
+
+    let wt = parseInt(prompt("Enter Width: "));
+    let ht = parseInt(prompt("Enter Height: "));
+    let rect = new Rectangle(wt,ht);
+    rect.draw(rect.getWt(),rect.getHt());
+    document.getElementById("dis").innerText="Area : "+rect.getArea()+";  Perimeter: "+rect.getPerimeter();
+</script>
+</html>
