@@ -6,10 +6,10 @@
 </head>
 <body>
 <canvas id="myCanvas" height="300px" width="500px" style="border: 2px double darkred"></canvas>
-<p id ="dis"></p>
+<p id="dis"></p>
 </body>
 <script>
-    let Rectangle = function (x,y) {
+    let Rectangle = function (x, y) {
         this.wt = x;
         this.ht = y;
 
@@ -29,21 +29,21 @@
             return this.wt * this.ht;
         }
         this.getPerimeter = function () {
-            return 2*(this.wt + this.ht);
+            return 2 * (this.wt + this.ht);
         }
-        this.draw =function () {
+        this.draw = function () {
             let ctx = document.getElementById("myCanvas").getContext("2d");
             ctx.beginPath();
-            ctx.rect(20,20,this.wt,this.ht);
-            ctx.strokeStyle="blue";
+            ctx.rect(20, 20, this.wt, this.ht);
+            ctx.strokeStyle = "blue";
             ctx.stroke();
         }
     }
 
     let wt = parseInt(prompt("Enter Width: "));
     let ht = parseInt(prompt("Enter Height: "));
-    let rect = new Rectangle(wt,ht);
-    rect.draw(rect.getWt(),rect.getHt());
-    document.getElementById("dis").innerText="Area : "+rect.getArea()+";  Perimeter: "+rect.getPerimeter();
+    let rect = new Rectangle(wt, ht);
+    rect.draw(rect.getWt(), rect.getHt());
+    document.getElementById("dis").innerText = "Area : " + rect.getArea() + ";  Perimeter: " + rect.getPerimeter();
 </script>
 </html>
